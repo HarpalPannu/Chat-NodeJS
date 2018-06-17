@@ -1,4 +1,3 @@
-// Setup basic express server
 var express = require ('express');
 var app = express ();
 var path = require ('path');
@@ -10,7 +9,6 @@ server.listen (port, () => {
   console.log ('Server listening at port %d', port);
 });
 
-// Routing
 app.use (express.static (path.join (__dirname, 'public')));
 
 Object.size = function (obj) {
@@ -29,7 +27,6 @@ io.on ('connection', socket => {
     socketID: socket.id,
   });
 
-  // when the socket emits 'add user', this listens and executes
   socket.on ('gotID', data => {
     Sockets[data.ID].emit ('scan', {
       data: 'connected',
