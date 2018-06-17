@@ -47,11 +47,11 @@ io.on ('connection', socket => {
   });
 
   socket.on ('UserConnected', function (data) {
-   
     Sockets[socket.id].user = data.User;
     socket.broadcast.emit ('NewUser', data);
     io.emit ('Online', {Online: Object.size(Sockets) - 1});
   });
+
   socket.on ('Msg', function (data) {
     var MsgSend = {
       User: data.User,
