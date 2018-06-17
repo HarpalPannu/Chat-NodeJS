@@ -44,7 +44,7 @@ io.on ('connection', socket => {
       disMsg: 'Disconnected : ' + Sockets[socket.id].user,
     };
     delete Sockets[socket.id];
-    console.log ("Disconnected");
+    console.log ("Disconnected " + Object.size(Sockets) + " Left" );
     io.emit ('Online', {Online: Object.size(Sockets) - 1});
     socket.broadcast.emit ('UserDis', disconnectMsg);
   });
