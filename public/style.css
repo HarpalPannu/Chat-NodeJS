@@ -1,0 +1,17 @@
+#qrcodeCanvas{
+  margin-right: 50px;
+  margin-top: 10px;
+  float: right;
+}
+p{
+  color: brown;
+  font-size: 1.2em;
+  border: goldenrod 2px solid;
+  word-wrap: break-word;
+}
+
+#chat{
+  width:  750px;
+  overflow: auto;
+  height: 500px;
+}
