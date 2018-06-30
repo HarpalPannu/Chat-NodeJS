@@ -3,15 +3,59 @@
   margin-top: 10px;
   float: right;
 }
-p{
-  color: brown;
-  font-size: 1.2em;
-  border: goldenrod 2px solid;
-  word-wrap: break-word;
-}
 
 #chat{
   width:  750px;
   overflow: auto;
-  height: 500px;
+  height: 340px;
+}
+
+body {
+  margin: 10px auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+.container p {
+  float: right;
+  margin-right: 20px;
+  font-size: 1.2em;
+
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#userbox{
+  float: left;
+  max-width: 60px;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: blue;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+#msg{
+  width:  600px;
+}
+.time-left {
+  float: left;
+  color: #999;
 }

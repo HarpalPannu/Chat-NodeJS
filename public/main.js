@@ -19,17 +19,31 @@ $ ('#btn').click (function () {
   socket.emit ('UserConnected', {User: $ ('#user').val ()});
 
   socket.on ('UserDis', data => {
-    var st = '<p>' + data.disMsg + '</p>';
+    var st = `<div class="container">
+    <div id="userbox"></div>
+    <p>${data.disMsg}</p>
+    <span class="time-left">11:02</span>
+    </div>`;
     $ ('#chat').html ($ ('#chat').html () + st);
   });
 
   socket.on ('NewUser', data => {
-    var st = '<p> New User : ' + data.User + '</p>';
+    var st = `<div class="container">
+    <div id="userbox"></div>
+    <p>New User :  ${data.User}</p>
+    <span class="time-left">11:02</span>
+    </div>`;
     $ ('#chat').html ($ ('#chat').html () + st);
   });
 
   socket.on ('NewMsg', data => {
-    var st = '<p>' + data.User + ' : ' + data.Message + '</p>';
+    // var st = '<p>' + data.User + ' : ' + data.Message + '</p>';
+
+    var st = `<div class="container">
+    <div id="userbox">${data.User}</div>
+    <p>${data.Message}</p>
+    <span class="time-left">11:02</span>
+    </div>`;
     $ ('#chat').html ($ ('#chat').html () + st);
   });
 
@@ -46,4 +60,13 @@ $ ('#send').click (function () {
     $ ('#chat').html () + '<p>You : ' + $ ('#msg').val () + '</p>'
   );
   $ ('#msg').val ('');
+});
+$ ('#msg').keypress (function (event) {
+  if (event.keyCode === 13) {
+    socket.emit ('Msg', {User: UserName, Message: $ ('#msg').val ()});
+    $ ('#chat').html (
+      $ ('#chat').html () + '<p>You : ' + $ ('#msg').val () + '</p>'
+    );
+    $ ('#msg').val ('');
+  }
 });
